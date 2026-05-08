@@ -10,6 +10,8 @@ Monorepo for a **GPU-first, multilayer** desktop video editor (CapCut-class edit
 
 After installing Rust, open a **new** terminal so `%USERPROFILE%\.cargo\bin` is on your `PATH`, or add it manually.
 
+**FFmpeg:** Phase 0 preview decodes via `ffmpeg` and `ffprobe` (must be on `PATH`). Windows: `winget install FFmpeg` (or [ffmpeg.org](https://ffmpeg.org/download.html)).
+
 Icons under `apps/desktop/src-tauri/icons/` were generated from `app-icon.png`. Replace that PNG and run `npm run tauri icon src-tauri/app-icon.png` from `apps/desktop` to refresh assets.
 
 ## Publish to GitHub

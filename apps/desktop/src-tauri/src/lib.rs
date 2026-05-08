@@ -1,3 +1,6 @@
+use std::path::PathBuf;
+
+use base64::{engine::general_purpose::STANDARD, Engine as _};
 use nebula_audio::AudioClock;
 use nebula_project::Project;
 use nebula_render::RenderEngine;
@@ -41,10 +44,35 @@ fn nebula_core_status() -> CoreStatusPayload {
     }
 }
 
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct VideoPreviewPayload {
+    pub source: nebula_decode::VideoDimensions,
+    pub preview: nebula_decode::VideoDimensions,
+    pub png_base64: String,
+}
+
+/// First-frame preview (PNG) using FFmpeg CLI on `PATH`. Max width 1280 px.
+#[tauri::command]
+fn video_preview_first_frame(path: String) -> Result<VideoPreviewPayload, String> {
+    let path = PathBuf::from(path.trim());
+    if !path.is_file() {
+        return Err(format!("not a file: {}", path.display()));
+    }
+    let (source, preview, png) = nebula_decode::first_frame_preview_png(&path, 1280)
+        .map_err(|e| e.to_string())?;
+    Ok(VideoPreviewPayload {
+        source,
+        preview,
+        png_base64: STANDARD.encode(png),
+    })
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![nebula_core_status])
+        .plugin(tauri_plugin_dialog::init())
+        .invoke_handler(tauri::generate_handler![nebula_core_status, video_preview_first_frame])
         .run(tauri::generate_context!())
         .expect("error while starting Nebula");
 }

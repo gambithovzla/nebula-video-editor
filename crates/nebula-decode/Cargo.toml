@@ -9,6 +9,9 @@ repository.workspace = true
 
 [dependencies]
 nebula-types = { path = "../nebula-types" }
+image = { version = "0.25", default-features = false, features = ["png"] }
+serde = { workspace = true, features = ["derive"] }
+serde_json.workspace = true
 thiserror.workspace = true
 
 [features]
