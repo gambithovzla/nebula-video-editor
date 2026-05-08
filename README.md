@@ -57,7 +57,7 @@ cargo check --workspace
 | `crates/nebula-types` | IDs, timebase, shared primitives |
 | `crates/nebula-project` | Project document & schema version |
 | `crates/nebula-timeline` | Tracks / clips model (stub) |
-| `crates/nebula-decode` | Decoder trait (backends later) |
+| `crates/nebula-decode` | FFmpeg/ffprobe CLI preview + `Decoder` trait for future backends |
 | `crates/nebula-audio` | Transport / clock (device later) |
 | `crates/nebula-render` | Compositor stub → `wgpu` in Phase 0 |
 | `crates/nebula-export` | Export job types |
@@ -67,17 +67,19 @@ cargo check --workspace
 | `crates/nebula-ffi` | C ABI smoke hooks; UniFFI later |
 | `apps/desktop` | Tauri + React UI |
 
-Deep-dive design notes live in [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
+**Roadmap & session state:** [`docs/ROADMAP.md`](docs/ROADMAP.md) (actualízalo al cerrar hitos).  
+Deep-dive design: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
 ## Bundling
 
-`tauri.conf.json` has **`bundle.active: false`** until you add icons under `apps/desktop/src-tauri/icons/`. Then run:
+Icons live under `apps/desktop/src-tauri/icons/`. To refresh from a master image:
 
 ```bash
-npm run tauri icon path/to/your.png
+cd apps/desktop
+npm run tauri icon src-tauri/app-icon.png
 ```
 
-and set `bundle.active` to `true`.
+`bundle.active` is **true** in `tauri.conf.json` once icons exist.
 
 ## License
 
