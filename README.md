@@ -22,7 +22,9 @@ Then from the repo root:
 .\scripts\github-init.ps1
 ```
 
-That creates **`nebula-video-editor`** under your account, adds `origin`, and pushes **`main`**. If the name is taken, edit the script or run `gh repo create` manually. Replace `OWNER` in `Cargo.toml` (`repository = ...`) with your GitHub username or org.
+That creates **`nebula-video-editor`** under your account, adds `origin`, and pushes **`main`**. If the name is taken, edit the script or run `gh repo create` manually.
+
+Canonical repo: [github.com/gambithovzla/nebula-video-editor](https://github.com/gambithovzla/nebula-video-editor).
 
 ## Quick start
 
