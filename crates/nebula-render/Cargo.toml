@@ -1,0 +1,16 @@
+[package]
+name = "nebula-render"
+description = "GPU compositor and frame graph — preview and export paths."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+nebula-types = { path = "../nebula-types" }
+thiserror.workspace = true
+
+[features]
+default = []
+# Phase 0: add `wgpu` here and gate backends behind `gpu` once the triangle compiles on your targets.

@@ -1,0 +1,34 @@
+[package]
+name = "nebula-desktop"
+description = "Nebula desktop shell (Tauri + React)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+name = "nebula_desktop_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[[bin]]
+name = "nebula-desktop"
+path = "src/main.rs"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde.workspace = true
+serde_json.workspace = true
+
+nebula-project = { path = "../../../crates/nebula-project" }
+nebula-types = { path = "../../../crates/nebula-types" }
+nebula-timeline = { path = "../../../crates/nebula-timeline" }
+nebula-audio = { path = "../../../crates/nebula-audio" }
+nebula-render = { path = "../../../crates/nebula-render" }
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]

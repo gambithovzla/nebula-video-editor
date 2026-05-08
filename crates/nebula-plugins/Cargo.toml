@@ -1,0 +1,16 @@
+[package]
+name = "nebula-plugins"
+description = "Effect plugin host (WASM / native) with a versioned ABI."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+semver = "1.0"
+
+[features]
+default = []
+# Future: wasm = ["dep:wasmtime"]

@@ -1,0 +1,29 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/nebula-types",
+    "crates/nebula-project",
+    "crates/nebula-timeline",
+    "crates/nebula-decode",
+    "crates/nebula-audio",
+    "crates/nebula-render",
+    "crates/nebula-export",
+    "crates/nebula-cache",
+    "crates/nebula-plugins",
+    "crates/nebula-ml",
+    "crates/nebula-ffi",
+    "apps/desktop/src-tauri",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.77"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/nebula-video/editor"
+
+[workspace.dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+thiserror = "2.0"
+uuid = { version = "1.11", features = ["v4", "serde"] }

@@ -1,0 +1,14 @@
+[package]
+name = "nebula-project"
+description = "Project schema, metadata, and (de)serialization for Nebula."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+nebula-types = { path = "../nebula-types" }
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true

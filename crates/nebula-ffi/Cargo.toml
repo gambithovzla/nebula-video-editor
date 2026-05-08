@@ -1,0 +1,19 @@
+[package]
+name = "nebula-ffi"
+description = "Mobile FFI surface (UniFFI) — Kotlin/Swift bindings to nebula-core."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[lib]
+crate-type = ["cdylib", "staticlib", "lib"]
+
+[dependencies]
+nebula-project = { path = "../nebula-project" }
+nebula-types = { path = "../nebula-types" }
+
+[features]
+default = []
+# Future: mobile = ["dep:uniffi"]

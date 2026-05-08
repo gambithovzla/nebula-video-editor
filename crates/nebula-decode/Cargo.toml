@@ -1,0 +1,16 @@
+[package]
+name = "nebula-decode"
+description = "Decoder abstraction; platform implementations (FFmpeg, MediaCodec, etc.) plug in here."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+nebula-types = { path = "../nebula-types" }
+thiserror.workspace = true
+
+[features]
+default = []
+# Future: ffmpeg = ["dep:ffmpeg-next"]

@@ -1,0 +1,13 @@
+[package]
+name = "nebula-export"
+description = "Offline export queue: flatten timeline, encode, mux."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+nebula-project = { path = "../nebula-project" }
+serde.workspace = true
+thiserror.workspace = true

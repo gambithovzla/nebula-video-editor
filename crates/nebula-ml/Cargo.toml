@@ -1,0 +1,15 @@
+[package]
+name = "nebula-ml"
+description = "Lightweight on-device inference (ONNX Runtime / Core ML bridges)."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+thiserror.workspace = true
+
+[features]
+default = []
+# Future: onnx = ["dep:ort"]

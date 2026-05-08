@@ -1,0 +1,12 @@
+[package]
+name = "nebula-cache"
+description = "Proxies, thumbnails, decoded frame LRU, and waveform caches."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+nebula-types = { path = "../nebula-types" }
+thiserror.workspace = true
