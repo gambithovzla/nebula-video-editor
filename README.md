@@ -12,6 +12,18 @@ After installing Rust, open a **new** terminal so `%USERPROFILE%\.cargo\bin` is 
 
 Icons under `apps/desktop/src-tauri/icons/` were generated from `app-icon.png`. Replace that PNG and run `npm run tauri icon src-tauri/app-icon.png` from `apps/desktop` to refresh assets.
 
+## Publish to GitHub
+
+You need a one-time login: `gh auth login` (install [GitHub CLI](https://cli.github.com/) if needed).
+
+Then from the repo root:
+
+```powershell
+.\scripts\github-init.ps1
+```
+
+That creates **`nebula-video-editor`** under your account, adds `origin`, and pushes **`main`**. If the name is taken, edit the script or run `gh repo create` manually. Replace `OWNER` in `Cargo.toml` (`repository = ...`) with your GitHub username or org.
+
 ## Quick start
 
 ```bash
